@@ -72,11 +72,14 @@ class Login extends Component {
   };
 
   handleSubmit = e => {
+    
     e.preventDefault();
     const { active, type } = this.state;
     const { form, onSubmit } = this.props;
+
     const activeFileds = active[type];
     form.validateFields(activeFileds, { force: true }, (err, values) => {
+    
       onSubmit(err, values);
     });
   };
@@ -125,6 +128,8 @@ class Login extends Component {
 
 Login.Tab = LoginTab;
 Login.Submit = LoginSubmit;
+
+
 Object.keys(LoginItem).forEach(item => {
   Login[item] = LoginItem[item];
 });
